@@ -78,15 +78,19 @@
     <Compile Include="DataAccess\Abstraction\ICarRepositery.cs" />
     <Compile Include="DataAccess\Abstraction\ICarsColorRepositery.cs" />
     <Compile Include="DataAccess\Abstraction\ICityRepositery.cs" />
+    <Compile Include="DataAccess\Abstraction\IFuelRepositery.cs" />
     <Compile Include="DataAccess\Abstraction\IModelRepositery.cs" />
     <Compile Include="DataAccess\Abstraction\IRepositery.cs" />
     <Compile Include="DataAccess\Abstraction\IStatusRepositery.cs" />
+    <Compile Include="DataAccess\Abstraction\IUnitOfWork.cs" />
     <Compile Include="DataAccess\Concrete\EFBrandRepositery.cs" />
     <Compile Include="DataAccess\Concrete\EFCarRepositery.cs" />
     <Compile Include="DataAccess\Concrete\EFCarsColorRepositery.cs" />
     <Compile Include="DataAccess\Concrete\EFCityRepositery.cs" />
+    <Compile Include="DataAccess\Concrete\EFFuelTypeRepositery.cs" />
     <Compile Include="DataAccess\Concrete\EFModelRepositery.cs" />
     <Compile Include="DataAccess\Concrete\EFStatusRepositery.cs" />
+    <Compile Include="DataAccess\Concrete\EFUnitOfWork.cs" />
     <Compile Include="DataAccess\TurboContext.cs" />
     <Compile Include="Domain\Entities\Car.cs" />
     <Compile Include="Domain\Entities\City.cs" />
@@ -110,9 +114,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202306190943346_Init.cs" />
-    <Compile Include="Migrations\202306190943346_Init.designer.cs">
-      <DependentUpon>202306190943346_Init.cs</DependentUpon>
+    <Compile Include="Migrations\202306191128116_Init.cs" />
+    <Compile Include="Migrations\202306191128116_Init.designer.cs">
+      <DependentUpon>202306191128116_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -128,8 +132,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\202306190943346_Init.resx">
-      <DependentUpon>202306190943346_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202306191128116_Init.resx">
+      <DependentUpon>202306191128116_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

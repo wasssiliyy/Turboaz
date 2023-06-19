@@ -21,26 +21,32 @@ namespace Turboaz.DataAccess.Concrete
         public void AddData(Car data)
         {
             _context.Entry(data).State = EntityState.Added;
+            _context.SaveChanges();
         }
 
         public void DeleteData(int id)
         {
-            throw new NotImplementedException();
+            _context.Entry(id).State = EntityState.Deleted;
+            _context.SaveChanges();
         }
 
         public ObservableCollection<Car> GetAll()
         {
-            throw new NotImplementedException();
+            var data=from c in _context.Cars
+                     select c;
+            return new ObservableCollection<Car>(data);
         }
 
         public Car GetData(int id)
         {
-            throw new NotImplementedException();
+            var result=_context.Cars.FirstOrDefault(c => c.Id == id);
+            return result;
         }
 
         public void UpdateData(Car data)
         {
-            throw new NotImplementedException();
+           _context.Entry(data).State=EntityState.Modified;
+            _context.SaveChanges();
         }
     }
 }
