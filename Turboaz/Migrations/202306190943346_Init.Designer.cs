@@ -13,7 +13,7 @@ namespace Turboaz.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202306181508384_Init"; }
+            get { return "202306190943346_Init"; }
         }
         
         string IMigrationMetadata.Source

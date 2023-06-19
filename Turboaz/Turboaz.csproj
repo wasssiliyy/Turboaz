@@ -91,24 +91,28 @@
     <Compile Include="Domain\Entities\Car.cs" />
     <Compile Include="Domain\Entities\City.cs" />
     <Compile Include="Domain\Entities\CarsColor.cs" />
+    <Compile Include="Domain\Entities\FuelType.cs" />
     <Compile Include="Domain\Entities\Mapping\BrandMap.cs" />
     <Compile Include="Domain\Entities\Mapping\CarMap.cs" />
     <Compile Include="Domain\Entities\Mapping\CityMap.cs" />
     <Compile Include="Domain\Entities\Mapping\ColorMap.cs" />
+    <Compile Include="Domain\Entities\Mapping\FuelMap.cs" />
     <Compile Include="Domain\Entities\Mapping\ModelMap.cs" />
     <Compile Include="Domain\Entities\Brand.cs" />
     <Compile Include="Domain\Entities\Mapping\StatusMap.cs" />
     <Compile Include="Domain\Entities\Model.cs" />
     <Compile Include="Domain\Entities\Status.cs" />
+    <Compile Include="Domain\ViewModels\BaseViewModel.cs" />
+    <Compile Include="Domain\ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Domain\Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202306181508384_Init.cs" />
-    <Compile Include="Migrations\202306181508384_Init.designer.cs">
-      <DependentUpon>202306181508384_Init.cs</DependentUpon>
+    <Compile Include="Migrations\202306190943346_Init.cs" />
+    <Compile Include="Migrations\202306190943346_Init.designer.cs">
+      <DependentUpon>202306190943346_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -124,8 +128,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\202306181508384_Init.resx">
-      <DependentUpon>202306181508384_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202306190943346_Init.resx">
+      <DependentUpon>202306190943346_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -140,9 +144,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Domain\ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

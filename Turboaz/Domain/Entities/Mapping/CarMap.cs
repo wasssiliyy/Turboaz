@@ -19,6 +19,7 @@ namespace Turboaz.Domain.Entities.Mapping
             this.Property(c => c.Year).HasColumnName("Year");
             this.Property(c => c.CityId).HasColumnName("CityId");
             this.Property(p => p.ImagePath).HasColumnName("Image");
+            this.Property(p => p.FuelTypeId).HasColumnName("FuelTypeId");
 
             this.Property(c => c.Km)
                 .IsRequired();

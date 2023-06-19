@@ -41,17 +41,20 @@
                         ColorId = c.Int(nullable: false),
                         Year = c.DateTime(nullable: false),
                         Km = c.Double(nullable: false),
-                        ImagePath = c.String(),
+                        Image = c.String(),
+                        FuelTypeId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Cities", t => t.CityId, cascadeDelete: true)
                 .ForeignKey("dbo.CarsColors", t => t.ColorId, cascadeDelete: true)
+                .ForeignKey("dbo.FuelTypes", t => t.FuelTypeId, cascadeDelete: true)
                 .ForeignKey("dbo.Models", t => t.ModelId, cascadeDelete: true)
                 .ForeignKey("dbo.Status", t => t.StatusId, cascadeDelete: true)
                 .Index(t => t.CityId)
                 .Index(t => t.StatusId)
                 .Index(t => t.ModelId)
-                .Index(t => t.ColorId);
+                .Index(t => t.ColorId)
+                .Index(t => t.FuelTypeId);
             
             CreateTable(
                 "dbo.Cities",
@@ -72,6 +75,15 @@
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
+                "dbo.FuelTypes",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Name = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.Status",
                 c => new
                     {
@@ -87,14 +99,17 @@
             DropForeignKey("dbo.Models", "BrandId", "dbo.Brands");
             DropForeignKey("dbo.Cars", "StatusId", "dbo.Status");
             DropForeignKey("dbo.Cars", "ModelId", "dbo.Models");
+            DropForeignKey("dbo.Cars", "FuelTypeId", "dbo.FuelTypes");
             DropForeignKey("dbo.Cars", "ColorId", "dbo.CarsColors");
             DropForeignKey("dbo.Cars", "CityId", "dbo.Cities");
+            DropIndex("dbo.Cars", new[] { "FuelTypeId" });
             DropIndex("dbo.Cars", new[] { "ColorId" });
             DropIndex("dbo.Cars", new[] { "ModelId" });
             DropIndex("dbo.Cars", new[] { "StatusId" });
             DropIndex("dbo.Cars", new[] { "CityId" });
             DropIndex("dbo.Models", new[] { "BrandId" });
             DropTable("dbo.Status");
+            DropTable("dbo.FuelTypes");
             DropTable("dbo.CarsColors");
             DropTable("dbo.Cities");
             DropTable("dbo.Cars");
