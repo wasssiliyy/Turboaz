@@ -47,6 +47,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -103,13 +105,21 @@
     <Compile Include="Domain\Entities\Brand.cs" />
     <Compile Include="Domain\Entities\Model.cs" />
     <Compile Include="Domain\ViewModels\BaseViewModel.cs" />
+    <Compile Include="Domain\ViewModels\MainUserControlUserViewModel.cs" />
     <Compile Include="Domain\ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Domain\Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Domain\Views\UserControls\MainUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Views\UserControls\MainUserControl.xaml.cs">
+      <DependentUpon>MainUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\202306191453546_Init.cs" />
     <Compile Include="Migrations\202306191453546_Init.designer.cs">
       <DependentUpon>202306191453546_Init.cs</DependentUpon>

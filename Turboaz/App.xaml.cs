@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using Turboaz.DataAccess.Abstraction;
 using Turboaz.DataAccess.Concrete;
 using Turboaz.Domain.Entities;
@@ -18,6 +19,7 @@ namespace Turboaz
     public partial class App : Application
     {
         public static IUnitOfWork DB;
+        public static WrapPanel WrapPanel;
         public App()
         {
             DB = new EFUnitOfWork();

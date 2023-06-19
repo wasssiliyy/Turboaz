@@ -16,13 +16,14 @@ namespace Turboaz.DataAccess.Concrete
     public class EFFuelTypeRepositery : IFuelRepositery
     {
         private TurboContext _context;
+        
         public EFFuelTypeRepositery()
         {
             _context = new TurboContext();
         }
         public void AddData(FuelType data)
         {
-            _context.Entry(data).State=EntityState.Modified;
+            _context.Entry(data).State=EntityState.Added;
             _context.SaveChanges();
         }
 

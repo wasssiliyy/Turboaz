@@ -13,6 +13,10 @@ namespace Turboaz.DataAccess.Concrete
     public class EFModelRepositery : IModelRepositery
     {
         private TurboContext _context;
+        public EFModelRepositery()
+        {
+            _context = new TurboContext();  
+        }
         public void AddData(Model data)
         {
             _context.Entry(data).State = EntityState.Added;

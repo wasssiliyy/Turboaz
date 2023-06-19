@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Turboaz"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        ResizeMode="NoResize" WindowState="Maximized">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+        <Label Background="Red" Content="TURBO.AZ" FontSize="33" Foreground="WhiteSmoke" FontWeight="DemiBold"/>
+        <WrapPanel Grid.Row="2" Name="mywrappanel"/>
     </Grid>
 </Window>

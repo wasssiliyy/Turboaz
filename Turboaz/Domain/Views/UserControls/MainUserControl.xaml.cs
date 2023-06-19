@@ -14,18 +14,17 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Turboaz.Domain.ViewModels;
 
-namespace Turboaz
+namespace Turboaz.Domain.Views.UserControls
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MainUserControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainUserControl : UserControl
     {
-        public MainWindow()
+        public MainUserControl()
         {
             InitializeComponent();
-            App.WrapPanel=mywrappanel;
-            var vm=new MainWindowViewModel();
+            var vm = new MainUserControlUserViewModel();
             this.DataContext = vm;
         }
     }
