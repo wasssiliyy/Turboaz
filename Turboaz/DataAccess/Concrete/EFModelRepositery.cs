@@ -21,22 +21,27 @@ namespace Turboaz.DataAccess.Concrete
 
         public void DeleteData(int id)
         {
-            throw new NotImplementedException();
+            _context.Entry(id).State = EntityState.Deleted;
+            _context.SaveChanges();
         }
 
         public ObservableCollection<Model> GetAll()
         {
-            throw new NotImplementedException();
+            var data= from m in _context.Models
+                      select m;
+            return new ObservableCollection<Model> (data);
         }
 
         public Model GetData(int id)
         {
-            throw new NotImplementedException();
+            var data = _context.Models.FirstOrDefault(x => x.Id == id);
+            return data;
         }
 
         public void UpdateData(Model data)
         {
-            throw new NotImplementedException();
+            _context.Entry(data).State= EntityState.Modified;
+            _context.SaveChanges();
         }
     }
 }

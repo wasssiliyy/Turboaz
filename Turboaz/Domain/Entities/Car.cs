@@ -9,17 +9,17 @@ namespace Turboaz.Domain.Entities
         public string Name { get; set; }
         public decimal Price { get; set; }
         public int CityId { get; set; }
-        public int StatusId { get; set; }
+        public bool IsNew { get; set; }
         public int ModelId { get; set; }
         public int ColorId { get; set; }
         public DateTime Year { get; set; }
         public double Km { get; set; }
         public string ImagePath { get; set; }
         public int FuelTypeId { get; set; }
+        public string Engine { get; set; }
 
 
         public virtual City City { get; set; }
-        public virtual Status Status { get; set; }
         public virtual Model Model { get; set; }
         public virtual CarsColor Color { get; set; }
         public virtual FuelType FuelType { get; set; }

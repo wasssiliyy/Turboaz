@@ -15,7 +15,7 @@ namespace Turboaz.DataAccess.Abstraction
         ICityRepositery ICityRepositery { get; }
         IFuelRepositery IFuelTypeRepositery { get; }
         IModelRepositery IModelRepositery { get; }
-        IStatusRepositery IStatusRepositery { get; }
+        
         
     }
 }

@@ -21,6 +21,6 @@ namespace Turboaz.DataAccess.Concrete
 
         public IModelRepositery IModelRepositery => new EFModelRepositery();
 
-        public IStatusRepositery IStatusRepositery => new EFStatusRepositery();
+        
     }
 }

@@ -19,7 +19,6 @@ namespace Turboaz.DataAccess.Concrete
         public EFFuelTypeRepositery()
         {
             _context = new TurboContext();
-            _context.SaveChanges();
         }
         public void AddData(FuelType data)
         {

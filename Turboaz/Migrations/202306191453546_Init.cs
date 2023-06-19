@@ -36,22 +36,21 @@
                         Name = c.String(),
                         Price = c.Decimal(nullable: false, precision: 18, scale: 2),
                         CityId = c.Int(nullable: false),
-                        StatusId = c.Int(nullable: false),
+                        IsNew = c.Boolean(nullable: false),
                         ModelId = c.Int(nullable: false),
                         ColorId = c.Int(nullable: false),
                         Year = c.DateTime(nullable: false),
                         Km = c.Double(nullable: false),
                         Image = c.String(),
                         FuelTypeId = c.Int(nullable: false),
+                        Engine = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Cities", t => t.CityId, cascadeDelete: true)
                 .ForeignKey("dbo.CarsColors", t => t.ColorId, cascadeDelete: true)
                 .ForeignKey("dbo.FuelTypes", t => t.FuelTypeId, cascadeDelete: true)
                 .ForeignKey("dbo.Models", t => t.ModelId, cascadeDelete: true)
-                .ForeignKey("dbo.Status", t => t.StatusId, cascadeDelete: true)
                 .Index(t => t.CityId)
-                .Index(t => t.StatusId)
                 .Index(t => t.ModelId)
                 .Index(t => t.ColorId)
                 .Index(t => t.FuelTypeId);
@@ -83,21 +82,11 @@
                     })
                 .PrimaryKey(t => t.Id);
             
-            CreateTable(
-                "dbo.Status",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        IsNew = c.Boolean(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
         }
         
         public override void Down()
         {
             DropForeignKey("dbo.Models", "BrandId", "dbo.Brands");
-            DropForeignKey("dbo.Cars", "StatusId", "dbo.Status");
             DropForeignKey("dbo.Cars", "ModelId", "dbo.Models");
             DropForeignKey("dbo.Cars", "FuelTypeId", "dbo.FuelTypes");
             DropForeignKey("dbo.Cars", "ColorId", "dbo.CarsColors");
@@ -105,10 +94,8 @@
             DropIndex("dbo.Cars", new[] { "FuelTypeId" });
             DropIndex("dbo.Cars", new[] { "ColorId" });
             DropIndex("dbo.Cars", new[] { "ModelId" });
-            DropIndex("dbo.Cars", new[] { "StatusId" });
             DropIndex("dbo.Cars", new[] { "CityId" });
             DropIndex("dbo.Models", new[] { "BrandId" });
-            DropTable("dbo.Status");
             DropTable("dbo.FuelTypes");
             DropTable("dbo.CarsColors");
             DropTable("dbo.Cities");

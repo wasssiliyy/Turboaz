@@ -15,16 +15,18 @@ namespace Turboaz.Domain.Entities.Mapping
 
             this.Property(c => c.ColorId).HasColumnName("ColorId");
             this.Property(c => c.ModelId).HasColumnName("ModelId");
-            this.Property(c => c.StatusId).HasColumnName("StatusId");
             this.Property(c => c.Year).HasColumnName("Year");
             this.Property(c => c.CityId).HasColumnName("CityId");
             this.Property(p => p.ImagePath).HasColumnName("Image");
             this.Property(p => p.FuelTypeId).HasColumnName("FuelTypeId");
+            this.Property(e => e.Engine).HasColumnName("Engine");
 
             this.Property(c => c.Km)
                 .IsRequired();
 
             this.Property(c => c.Price)
+                .IsRequired();
+            this.Property(c => c.Engine)
                 .IsRequired();
         }
     }
