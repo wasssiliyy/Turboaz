@@ -32,9 +32,6 @@ namespace Turboaz.Domain.ViewModels
                 usercontrolViewModel.Year=unitOfWork.ICarRepositery.GetData(i).Year;
                 usercontrolViewModel.Engine = unitOfWork.ICarRepositery.GetData(i).Engine+" L";
                 usercontrolViewModel.Price=unitOfWork.ICarRepositery.GetData(i).Price;
-               
-
-
                 userControl.DataContext=usercontrolViewModel;
                 App.WrapPanel.Children.Add(userControl);
             }

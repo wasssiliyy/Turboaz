@@ -5,17 +5,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Turboaz.Commands;
+using Turboaz.DataAccess.Abstraction;
+using Turboaz.DataAccess.Concrete;
 using Turboaz.Domain.Views.UserControls;
 
 namespace Turboaz.Domain.ViewModels
 {
     public class MainUserControlUserViewModel:BaseViewModel
     {
+		public IUnitOfWork unitOfWork;
 		public RelayCommand CarButton { get; set; }
 		private decimal _price;
-
-		public MainUserControlUserViewModel()
+        
+        public MainUserControlUserViewModel()
 		{
+			unitOfWork = new EFUnitOfWork();
 			CarButton = new RelayCommand(obj =>
 			{
 				App.WrapPanel.Children.Clear();
@@ -25,6 +29,7 @@ namespace Turboaz.Domain.ViewModels
 				carViewModel.CarImagePath=ImagePath;
 				App.WrapPanel.Children.Add(carView);
 			});
+			
 		}
 		public decimal Price
 		{

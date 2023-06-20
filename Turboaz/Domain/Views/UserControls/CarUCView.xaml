@@ -5,9 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Turboaz.Domain.Views.UserControls"
              mc:Ignorable="d" Width="1500" Height="873"
-             d:DesignHeight="873" d:DesignWidth="1500" Background="black" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="190,10,0,10">
+             d:DesignHeight="873" d:DesignWidth="1500" Background="white" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="190,10,0,10">
+    
     <Grid>
         <Canvas>
+            <Button Command="{Binding backCommand}" Background="White">
+        <Image Source="/Images/back_arrow.png" Width="50"/>
+            </Button>
             <Image Source="{Binding CarImagePath}" Width="880" Height="350" ></Image>
             <Canvas>
 
@@ -23,9 +27,15 @@
 
             </Canvas>
 
-            <Label Content="City   : " FontSize="20" Canvas.Right="460" Foreground="White" Canvas.Top="30"></Label>
+            <Label Content="City   : " FontSize="20" FontWeight="Bold" FontStyle="Oblique" Canvas.Right="460" Foreground="Black" Canvas.Top="30"></Label>
+            <Label Content="Model   : " FontSize="20" FontWeight="Bold" FontStyle="Oblique" Canvas.Right="460" Foreground="Black" Canvas.Top="90"></Label>
+            <Label Content="Price   : " FontSize="20" FontWeight="Bold" FontStyle="Oblique" Canvas.Right="460" Foreground="Black" Canvas.Top="150"></Label>
+            <Label Content="Color   : " FontSize="20" FontWeight="Bold" FontStyle="Oblique" Canvas.Right="460" Foreground="Black" Canvas.Top="210"></Label>
 
-            <TextBlock Text="{Binding City}" Foreground="White" Canvas.Right="370" FontSize="20" Canvas.Top="35"></TextBlock>
+            <TextBlock Text="{Binding City}" Foreground="Black" Canvas.Right="370" FontSize="20" Canvas.Top="35"></TextBlock>
+            <TextBlock Text="{Binding Model}" Foreground="Black" Canvas.Right="370" FontSize="20" Canvas.Top="35"></TextBlock>
+            <TextBlock Text="{Binding Price}" Foreground="Black" Canvas.Right="370" FontSize="20" Canvas.Top="35"></TextBlock>
+            <TextBlock Text="{Binding Color}" Foreground="Black" Canvas.Right="370" FontSize="20" Canvas.Top="35"></TextBlock>
 
         </Canvas>
     </Grid>
