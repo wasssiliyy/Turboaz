@@ -14,6 +14,8 @@
             <RowDefinition Height="7*"/>
         </Grid.RowDefinitions>
         <Label Background="Red" Content="TURBO.AZ" FontSize="33" Foreground="WhiteSmoke" FontWeight="DemiBold"/>
-        <WrapPanel Grid.Row="2" Name="mywrappanel"/>
+        <ScrollViewer Grid.Row="2">
+        <WrapPanel Name="mywrappanel"/>
+        </ScrollViewer>
     </Grid>
 </Window>

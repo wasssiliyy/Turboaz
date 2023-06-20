@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:Turboaz"
              StartupUri="/Domain/Views/MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionaries\styleelement.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Dictionaries\stylelement2.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

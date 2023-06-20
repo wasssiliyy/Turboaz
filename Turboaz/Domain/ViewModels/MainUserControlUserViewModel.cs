@@ -1,9 +1,11 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Turboaz.Commands;
+using Turboaz.Domain.Views.UserControls;
 
 namespace Turboaz.Domain.ViewModels
 {
@@ -12,7 +14,19 @@ namespace Turboaz.Domain.ViewModels
 		public RelayCommand CarButton { get; set; }
 		private decimal _price;
 
-		public decimal PriceCommand
+		public MainUserControlUserViewModel()
+		{
+			CarButton = new RelayCommand(obj =>
+			{
+				App.WrapPanel.Children.Clear();
+				var carViewModel=new CarUCViewModel();
+				var carView=new CarUCView();
+				carView.DataContext = carViewModel;
+				carViewModel.CarImagePath=ImagePath;
+				App.WrapPanel.Children.Add(carView);
+			});
+		}
+		public decimal Price
 		{
 			get { return _price; }
 			set { _price = value; OnPropertyChanged(); }
@@ -21,19 +35,34 @@ namespace Turboaz.Domain.ViewModels
 
 		private string _marka;
 
-		public string MarkaCommand
+		public string Marka
 		{
 			get { return _marka; }
 			set { _marka = value; OnPropertyChanged(); }
 		}
 
-		private int _engine;
+		private string _engine;
 
-		public int EngineCommand
+		public string Engine
 		{
 			get { return _engine; }
-			set { _engine = value; }
+			set { _engine = value;OnPropertyChanged(); }
 		}
+		private string _imagePath;
+
+		public string ImagePath
+		{
+			get { return _imagePath; }
+			set { _imagePath = value; OnPropertyChanged(); }
+		}
+		private int _year;
+
+		public int Year
+		{
+			get { return _year; }
+			set { _year = value; OnPropertyChanged(); }
+		}
+
 
 	}
 }

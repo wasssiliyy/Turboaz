@@ -67,6 +67,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Dictionaries\styleelement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dictionaries\stylelement2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Domain\Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -105,24 +113,32 @@
     <Compile Include="Domain\Entities\Brand.cs" />
     <Compile Include="Domain\Entities\Model.cs" />
     <Compile Include="Domain\ViewModels\BaseViewModel.cs" />
+    <Compile Include="Domain\ViewModels\CarUCViewModel.cs" />
     <Compile Include="Domain\ViewModels\MainUserControlUserViewModel.cs" />
     <Compile Include="Domain\ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Domain\Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Domain\Views\UserControls\CarUCView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Domain\Views\UserControls\MainUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Views\UserControls\CarUCView.xaml.cs">
+      <DependentUpon>CarUCView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Domain\Views\UserControls\MainUserControl.xaml.cs">
       <DependentUpon>MainUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202306191453546_Init.cs" />
-    <Compile Include="Migrations\202306191453546_Init.designer.cs">
-      <DependentUpon>202306191453546_Init.cs</DependentUpon>
+    <Compile Include="Migrations\202306201228397_Init.cs" />
+    <Compile Include="Migrations\202306201228397_Init.designer.cs">
+      <DependentUpon>202306201228397_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -138,8 +154,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\202306191453546_Init.resx">
-      <DependentUpon>202306191453546_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202306201228397_Init.resx">
+      <DependentUpon>202306201228397_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

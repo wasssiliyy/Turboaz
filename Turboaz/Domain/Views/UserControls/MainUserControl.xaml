@@ -9,11 +9,15 @@
     <Grid>
         <Canvas>
             
-            <Image Width="330" Height="230" Source="{Binding ImageCommand}"/>
-            <TextBlock Text="{Binding PriceCommand}" FontSize="20" Canvas.Bottom="120" Canvas.Left="40"/>
-            <TextBlock Text="{Binding MarkaCommand}" FontSize="20" Canvas.Bottom="70" Canvas.Left="40"/>
-            <TextBlock Text="{Binding EngineCommand}" FontSize="20" Canvas.Bottom="70" Canvas.Left="100"/>
-            <Button Width="330" Background="Transparent"/>
+            <TextBlock Text="{Binding Price}" Panel.ZIndex="1" FontSize="30" FontWeight="Bold" Canvas.Bottom="100" Canvas.Left="40"/>
+            <TextBlock Text="{Binding Marka}" Panel.ZIndex="1" FontSize="20" Canvas.Bottom="60" Canvas.Left="40"/>
+            <TextBlock Text="{Binding Year}" Panel.ZIndex="1" FontSize="20" Canvas.Bottom="20" Canvas.Left="40"/>
+            <TextBlock Text="{Binding Engine}" Panel.ZIndex="1" FontSize="20" Canvas.Bottom="20" Canvas.Left="100"/>
+            <Button Style="{StaticResource MyLabelAnimation}" Command="{Binding CarButton}" Width="330" Height="400" Background="Transparent">
+                <Canvas>
+                <Image Width="330" Height="270" Source="{Binding ImagePath}" Canvas.Right="-165" Canvas.Top="-200"/>
+                </Canvas>
+            </Button>
         </Canvas>
     </Grid>
 </UserControl>
