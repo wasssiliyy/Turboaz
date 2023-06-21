@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Turboaz.Commands;
 using Turboaz.DataAccess.Abstraction;
 using Turboaz.DataAccess.Concrete;
+using Turboaz.Domain.Entities;
 using Turboaz.Domain.Views.UserControls;
 
 namespace Turboaz.Domain.ViewModels
@@ -15,26 +16,55 @@ namespace Turboaz.Domain.ViewModels
     {
 		public IUnitOfWork unitOfWork;
 		public RelayCommand CarButton { get; set; }
-		private decimal _price;
-        
-        public MainUserControlUserViewModel()
+		private Car selectedCar;
+
+		public Car SelectedCar
+		{
+			get { return selectedCar; }
+			set { selectedCar = value; }
+		}
+
+
+		public MainUserControlUserViewModel()
 		{
 			unitOfWork = new EFUnitOfWork();
 			CarButton = new RelayCommand(obj =>
 			{
 				App.WrapPanel.Children.Clear();
-				var carViewModel=new CarUCViewModel();
-				var carView=new CarUCView();
-				carView.DataContext = carViewModel;
-				carViewModel.CarImagePath=ImagePath;
-				App.WrapPanel.Children.Add(carView);
+
+				CarUCViewModel carUCViewModel = new CarUCViewModel();
+				CarUCView carUCView = new CarUCView();
+				carUCViewModel.Price = selectedCar.Price.ToString();
+				carUCViewModel.Marka = selectedCar.Model.Brand.BrandName;
+				carUCViewModel.CarImagePath = selectedCar.ImagePath;
+				carUCViewModel.City = selectedCar.City.CityName;
+				carUCViewModel.Colors = selectedCar.Color.ColorName;
+				carUCViewModel.Model=selectedCar.Model.ModelName;
+
+				carUCView.DataContext = carUCViewModel;
+				App.WrapPanel.Children.Add(carUCView);
 			});
 			
 		}
-		public decimal Price
+
+
+
+
+
+		private string _price;
+		public string Price
 		{
 			get { return _price; }
 			set { _price = value; OnPropertyChanged(); }
+		}
+
+
+		private string _city;
+
+		public string City
+		{
+			get { return _city; }
+			set { _city = value; OnPropertyChanged(); }
 		}
 
 
@@ -68,6 +98,14 @@ namespace Turboaz.Domain.ViewModels
 			set { _year = value; OnPropertyChanged(); }
 		}
 
+        private string _color;
 
-	}
+        public string Color
+        {
+            get { return _color; }
+            set { _color = value; OnPropertyChanged(); }
+        }
+
+
+    }
 }

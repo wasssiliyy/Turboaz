@@ -86,11 +86,11 @@
         
         public override void Down()
         {
-            DropForeignKey("dbo.Models", "BrandId", "dbo.Brands");
             DropForeignKey("dbo.Cars", "ModelId", "dbo.Models");
             DropForeignKey("dbo.Cars", "FuelTypeId", "dbo.FuelTypes");
             DropForeignKey("dbo.Cars", "ColorId", "dbo.CarsColors");
             DropForeignKey("dbo.Cars", "CityId", "dbo.Cities");
+            DropForeignKey("dbo.Models", "BrandId", "dbo.Brands");
             DropIndex("dbo.Cars", new[] { "FuelTypeId" });
             DropIndex("dbo.Cars", new[] { "ColorId" });
             DropIndex("dbo.Cars", new[] { "ModelId" });

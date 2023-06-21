@@ -13,5 +13,6 @@ namespace Turboaz.Entities
         public string ModelName { get; set; }
         public int BrandId { get; set; }
         public virtual ICollection<Car> Cars{ get; set; }
+        public virtual Brand Brand { get; set; }
     }
 }
