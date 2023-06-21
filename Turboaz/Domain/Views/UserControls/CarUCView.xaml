@@ -32,10 +32,10 @@
             <Label Content="Price   : " FontSize="20" FontWeight="Bold" FontStyle="Oblique" Canvas.Right="460" Foreground="Black" Canvas.Top="150"></Label>
             <Label Content="Color   : " FontSize="20" FontWeight="Bold" FontStyle="Oblique" Canvas.Right="460" Foreground="Black" Canvas.Top="210"></Label>
 
-            <TextBlock Text="{Binding City}" Foreground="Black" Canvas.Left="1050" FontStyle="Oblique" FontSize="20" Canvas.Top="35"></TextBlock>
-            <TextBlock Text="{Binding Model}" Foreground="Black" Canvas.Left="1050" FontStyle="Oblique" FontSize="20" Canvas.Top="95"></TextBlock>
-            <TextBlock Text="{Binding Price}" Foreground="Black" Canvas.Left="1050" FontStyle="Oblique" FontSize="20" Canvas.Top="155"></TextBlock>
-            <TextBlock Text="{Binding Colors}" Foreground="Black" Canvas.Left="1050" FontStyle="Oblique" FontSize="20" Canvas.Top="215"></TextBlock>
+            <TextBlock Text="{Binding City}" Foreground="Black" FontWeight="Bold" Canvas.Left="1050" FontStyle="Oblique" FontSize="20" Canvas.Top="35"></TextBlock>
+            <TextBlock Text="{Binding Model}" Foreground="Black" FontWeight="Bold" Canvas.Left="1050" FontStyle="Oblique" FontSize="20" Canvas.Top="95"></TextBlock>
+            <TextBlock Text="{Binding Price}" Foreground="Black" FontWeight="Bold" Canvas.Left="1050" FontStyle="Oblique" FontSize="20" Canvas.Top="155"></TextBlock>
+            <TextBlock Text="{Binding Colors}" Foreground="Black" FontWeight="Bold" Canvas.Left="1050" FontStyle="Oblique" FontSize="20" Canvas.Top="215"></TextBlock>
 
         </Canvas>
     </Grid>

@@ -34,7 +34,7 @@ namespace Turboaz.Domain.ViewModels
 
 				CarUCViewModel carUCViewModel = new CarUCViewModel();
 				CarUCView carUCView = new CarUCView();
-				carUCViewModel.Price = selectedCar.Price.ToString();
+				carUCViewModel.Price = selectedCar.Price.ToString()+" $";
 				carUCViewModel.Marka = selectedCar.Model.Brand.BrandName;
 				carUCViewModel.CarImagePath = selectedCar.ImagePath;
 				carUCViewModel.City = selectedCar.City.CityName;
