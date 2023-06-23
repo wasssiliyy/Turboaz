@@ -7,7 +7,7 @@ using Turboaz.DataAccess.Abstraction;
 
 namespace Turboaz.DataAccess.Concrete
 {
-    internal class EFUnitOfWork : IUnitOfWork
+    public class EFUnitOfWork : IUnitOfWork
     {
         public IBrandRepositery IBrandRepositery => new EFBrandRepositery();
 

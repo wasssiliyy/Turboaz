@@ -9,8 +9,8 @@
     
     <Grid>
         <Canvas>
-            <Button Command="{Binding backCommand}" Style="{StaticResource allButtons}" Background="White">
-        <Image Source="/Images/back_arrow.png" Width="50"/>
+            <Button Canvas.Top="0" Canvas.Right="650" Command="{Binding backCommand}" Style="{StaticResource allButtons}" Foreground="Red" Background="White">
+                <Image Source="/Images/back_arrow.png" Width="50"/>
             </Button>
             <Image Source="{Binding CarImagePath}" Width="880" Height="350" ></Image>
             <Canvas>
@@ -26,16 +26,22 @@
                 <TextBlock Canvas.Top="369" Background="Black" Width="900" FontSize="2" ></TextBlock>
 
             </Canvas>
+                
+            <Label Content="City   : " FontSize="20" FontWeight="Bold" FontStyle="Oblique" Canvas.Right="430" Foreground="Black" Canvas.Top="10"></Label>
+            <Label Content="Brand   : " FontSize="20" FontWeight="Bold" FontStyle="Oblique" Canvas.Right="430" Foreground="Black" Canvas.Top="70"></Label>
+            <Label Content="Model   : " FontSize="20" FontWeight="Bold" FontStyle="Oblique" Canvas.Right="430" Foreground="Black" Canvas.Top="130"></Label>
+            <Label Content="Price   : " FontSize="20" FontWeight="Bold" FontStyle="Oblique" Canvas.Right="430" Foreground="Black" Canvas.Top="190"></Label>
+            <Label Content="Color   : " FontSize="20" FontWeight="Bold" FontStyle="Oblique" Canvas.Right="430" Foreground="Black" Canvas.Top="250"></Label>
+            <Label Content="Fuel   : " FontSize="20" FontWeight="Bold" FontStyle="Oblique" Canvas.Right="430" Foreground="Black" Canvas.Top="310"></Label>
+       
 
-            <Label Content="City   : " FontSize="20" FontWeight="Bold" FontStyle="Oblique" Canvas.Right="460" Foreground="Black" Canvas.Top="30"></Label>
-            <Label Content="Model   : " FontSize="20" FontWeight="Bold" FontStyle="Oblique" Canvas.Right="460" Foreground="Black" Canvas.Top="90"></Label>
-            <Label Content="Price   : " FontSize="20" FontWeight="Bold" FontStyle="Oblique" Canvas.Right="460" Foreground="Black" Canvas.Top="150"></Label>
-            <Label Content="Color   : " FontSize="20" FontWeight="Bold" FontStyle="Oblique" Canvas.Right="460" Foreground="Black" Canvas.Top="210"></Label>
-
-            <TextBlock Text="{Binding City}" Foreground="Black" FontWeight="Bold" Canvas.Left="1050" FontStyle="Oblique" FontSize="20" Canvas.Top="35"></TextBlock>
-            <TextBlock Text="{Binding Model}" Foreground="Black" FontWeight="Bold" Canvas.Left="1050" FontStyle="Oblique" FontSize="20" Canvas.Top="95"></TextBlock>
-            <TextBlock Text="{Binding Price}" Foreground="Black" FontWeight="Bold" Canvas.Left="1050" FontStyle="Oblique" FontSize="20" Canvas.Top="155"></TextBlock>
-            <TextBlock Text="{Binding Colors}" Foreground="Black" FontWeight="Bold" Canvas.Left="1050" FontStyle="Oblique" FontSize="20" Canvas.Top="215"></TextBlock>
+            <TextBlock Text="{Binding City}" Foreground="Black" FontWeight="Bold" Canvas.Left="1080" FontStyle="Oblique" FontSize="20" Canvas.Top="15"></TextBlock>
+            <TextBlock Text="{Binding Brands}" Foreground="Black" FontWeight="Bold" Canvas.Left="1080" FontStyle="Oblique" FontSize="20" Canvas.Top="75"></TextBlock>
+            <TextBlock Text="{Binding Model}" Foreground="Black" FontWeight="Bold" Canvas.Left="1080" FontStyle="Oblique" FontSize="20" Canvas.Top="135"></TextBlock>
+            <TextBlock Text="{Binding Price}" Foreground="Black" FontWeight="Bold" Canvas.Left="1080" FontStyle="Oblique" FontSize="20" Canvas.Top="195"></TextBlock>
+            <TextBlock Text="{Binding Colors}" Foreground="Black" FontWeight="Bold" Canvas.Left="1080" FontStyle="Oblique" FontSize="20" Canvas.Top="255"></TextBlock>
+            <TextBlock Text="{Binding FuelType}" Foreground="Black" FontWeight="Bold" Canvas.Left="1080" FontStyle="Oblique" FontSize="20" Canvas.Top="315"></TextBlock>
+            <TextBlock Text="{Binding IsNew}" Foreground="DarkBlue" FontWeight="Bold" Canvas.Left="380" FontStyle="Oblique" FontSize="40" Canvas.Top="425"></TextBlock>
 
         </Canvas>
     </Grid>

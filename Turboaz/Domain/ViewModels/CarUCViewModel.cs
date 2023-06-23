@@ -13,7 +13,7 @@ namespace Turboaz.Domain.ViewModels
 {
     public class CarUCViewModel : BaseViewModel
     {
-        IUnitOfWork unitOfWork;
+        
         private string _carimagePath;
       
         public RelayCommand backCommand { get; set; }
@@ -47,20 +47,13 @@ namespace Turboaz.Domain.ViewModels
             set { _price = value; OnPropertyChanged(); }
         }
 
-        private int _id;
 
-        public int Id
+        private string _brand;
+
+        public string Brands
         {
-            get { return _id; }
-            set { _id = value;OnPropertyChanged(); }
-        }
-
-        private string marka;
-
-        public string Marka
-        {
-            get { return marka; }
-            set { marka = value; OnPropertyChanged(); }
+            get { return _brand; }
+            set { _brand = value; OnPropertyChanged(); }
         }
 
         private string _color;
@@ -71,9 +64,22 @@ namespace Turboaz.Domain.ViewModels
             set { _color = value; OnPropertyChanged(); }
         }
 
+        private string _fuelType;
 
-        public MainUserControl userControl;
-        public MainUserControlUserViewModel usercontrolViewModel;
+        public string FuelType
+        {
+            get { return _fuelType; }
+            set { _fuelType = value; OnPropertyChanged(); }
+        }
+
+        private string _isNew;
+
+        public string IsNew
+        {
+            get { return _isNew; }
+            set { _isNew = value; OnPropertyChanged(); }
+        }
+
         public CarUCViewModel()
         {
         

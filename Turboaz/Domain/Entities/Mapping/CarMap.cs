@@ -21,6 +21,13 @@ namespace Turboaz.Domain.Entities.Mapping
             this.Property(p => p.FuelTypeId).HasColumnName("FuelTypeId");
             this.Property(e => e.Engine).HasColumnName("Engine");
 
+            
+
+
+            
+
+
+
             this.Property(c => c.Km)
                 .IsRequired();
 

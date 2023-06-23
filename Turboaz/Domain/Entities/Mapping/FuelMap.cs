@@ -13,7 +13,7 @@ namespace Turboaz.Domain.Entities.Mapping
         {
             this.HasKey(x=> x.Id);
 
-            this.Property(x => x.Name).HasColumnName("Name");
+            this.Property(x => x.FuelTypeName).HasColumnName("Name");
 
             this.HasMany(c => c.Cars)
                 .WithOptional()

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
+using Turboaz.Commands;
 using Turboaz.DataAccess.Abstraction;
 using Turboaz.DataAccess.Concrete;
 using Turboaz.Domain.Entities;
@@ -13,12 +14,14 @@ using Turboaz.Entities;
 
 namespace Turboaz.Domain.ViewModels
 {
-    public class MainWindowViewModel:BaseViewModel
+    public class MainWindowViewModel : BaseViewModel
     {
-        public IUnitOfWork unitOfWork { get; set; }
+
         public MainUserControl userControl;
         public MainUserControlUserViewModel usercontrolViewModel;
         private ObservableCollection<Car> _cars;
+
+
 
         public ObservableCollection<Car> Cars
         {
@@ -66,34 +69,79 @@ namespace Turboaz.Domain.ViewModels
             set { _fuelType = value; OnPropertyChanged(); }
         }
 
-        
+        private string _isNew;
 
+        public string IsNew
+        {
+            get { return _isNew; }
+            set { _isNew = value; OnPropertyChanged(); }
+        }
+
+
+        public RelayCommand Show { get; set; }
 
         public MainWindowViewModel()
         {
             Brands = new ObservableCollection<Brand>(App.DB.IBrandRepositery.GetAll());
             Cars = new ObservableCollection<Car>(App.DB.ICarRepositery.GetAll());
             Models = new ObservableCollection<Model>(App.DB.IModelRepositery.GetAll());
-            Colors=new ObservableCollection<CarsColor>(App.DB.ICarsColorRepositery.GetAll());
+            Colors = new ObservableCollection<CarsColor>(App.DB.ICarsColorRepositery.GetAll());
             Cities = new ObservableCollection<City>(App.DB.ICityRepositery.GetAll());
             FuelTypes = new ObservableCollection<FuelType>(App.DB.IFuelTypeRepositery.GetAll());
+
+            //show
+            Show = new RelayCommand(obj =>
+            {
+                //MainUserControlUserViewModel mainUserControlUserViewModel = new MainUserControlUserViewModel();
+                //MainWindow mainWindow = new MainWindow();
+                App.WrapPanel.Children.Clear();
+                for (int i = 0; i < Cars.Count; i++)
+                {
+                    userControl = new MainUserControl();
+                    usercontrolViewModel = new MainUserControlUserViewModel();
+                    if (Brands != null)
+                    {
+                        //if()
+                        usercontrolViewModel.SelectedCar = Cars[i];
+                        usercontrolViewModel.ImagePath = Cars[i].ImagePath;
+                        usercontrolViewModel.Color = Cars[i].Color.ColorName;
+
+                        usercontrolViewModel.Marka = Cars[i].Model.Brand.BrandName;
+                        usercontrolViewModel.Year = Cars[i].Year + ",";
+                        usercontrolViewModel.Engine = Cars[i].Engine + "L,";
+                        usercontrolViewModel.Price = Cars[i].Price + " $";
+                        usercontrolViewModel.FuelType = Cars[i].FuelType.FuelTypeName;
+                        usercontrolViewModel.Km = Cars[i].Km + " Km";
+                        usercontrolViewModel.IsNew = Cars[i].IsNew.ToString();
+                        userControl.DataContext = usercontrolViewModel;
+                        App.WrapPanel.Children.Add(userControl);
+                    }
+                    
+                }
+
+
+            });
+
 
 
 
             App.WrapPanel.Children.Clear();
             for (int i = 0; i < Cars.Count; i++)
-            {     
+            {
                 userControl = new MainUserControl();
                 usercontrolViewModel = new MainUserControlUserViewModel();
                 usercontrolViewModel.SelectedCar = Cars[i];
                 usercontrolViewModel.ImagePath = Cars[i].ImagePath;
                 usercontrolViewModel.Color = Cars[i].Color.ColorName;
-                
+
                 usercontrolViewModel.Marka = Cars[i].Model.Brand.BrandName;
-                usercontrolViewModel.Year = Cars[i].Year;
-                usercontrolViewModel.Engine = Cars[i].Engine;
-                usercontrolViewModel.Price = Cars[i].Price +" $";
-                userControl.DataContext=usercontrolViewModel;
+                usercontrolViewModel.Year = Cars[i].Year + ",";
+                usercontrolViewModel.Engine = Cars[i].Engine + "L,";
+                usercontrolViewModel.Price = Cars[i].Price + " $";
+                usercontrolViewModel.FuelType = Cars[i].FuelType.FuelTypeName;
+                usercontrolViewModel.Km = Cars[i].Km + " Km";
+                usercontrolViewModel.IsNew = Cars[i].IsNew.ToString();
+                userControl.DataContext = usercontrolViewModel;
                 App.WrapPanel.Children.Add(userControl);
             }
         }

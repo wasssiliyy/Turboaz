@@ -17,11 +17,13 @@ namespace Turboaz.Domain.Entities.Mapping
 
             this.HasMany(m => m.Cars)
                 .WithOptional()
-                .HasForeignKey(c => c.ModelId);
+                .HasForeignKey(c => c.ModelId)
+                .WillCascadeOnDelete();
 
             this.Property(m => m.ModelName)
             .IsRequired()
             .HasMaxLength(30)
+            
             .IsUnicode(true);
         }
     }
